@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Aplicación Flask</title>
+</head>
+<body>
+
+    <h1>Uso de la API con Flask y Jinja2</h1>
+    <form action="/" method="post">
+        <hr>
+        <p>
+            <textarea name="chat" disabled rows="10" cols="120">
+                {% for mensaje in chat %}
+                {{ mensaje[0] }}: {{ mensaje[1] }}{% if not loop.last %}{% endif %}
+                {% endfor %}
+            </textarea>
+        </p>
+        <hr>
+        <p>¿Cuál es tu consulta?
+            <br><input type="text" required name="pregunta" value="{{ pregunta }}" size="100">
+        <input type="submit" value="Enviar"></p>
+    </form>
+</body>
+</html>
